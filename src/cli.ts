@@ -25,6 +25,7 @@ const binance = Binance({
 });
 
 const exitHooks = async (cancel: Function): Promise<void> => {
+    // TODO: Finish implementing
     // safety mechanism - cancel order if process is interrupted.
     process.once(
         "SIGINT",
@@ -93,8 +94,12 @@ const run = () => {
 const buy = async(quantity: number) => {
     let dailyStats: any = await binance.dailyStats({ symbol: symbol })
 
+    // TODO: Before we buy check our account balance and make sure we have enough $$$
+
     console.info(`Buying ${quantity} [${symbol}]`)
 
+    // TODO: Calculate # of shares based on fixed dollar amount. Use 1/10 of reserves in account.
+    
     const buyOrder = await binance.order({
             symbol: symbol,
             side: 'BUY',
@@ -124,6 +129,8 @@ const buy = async(quantity: number) => {
 
     setTimeout(() => {
         console.info("Selling after 60 minutes.")
+
+        // TODO: Check if order has already sold. If not then sell:
 
         const sellOrder = binance.order({
             symbol: symbol,
