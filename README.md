@@ -17,6 +17,8 @@ If MFI >= 100 and next candle is bullish (close > open) then:
 ## Develop
 
 ```
+export APIKEY=<your binance API key>
+export APISECRET=<your binance API secret>
 brew install yarn
 yarn install
 npm run build
