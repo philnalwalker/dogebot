@@ -82,6 +82,8 @@ const run = (simulated: boolean) => {
             let close = parseFloat(candle.close)
             let volume = parseFloat(candle.volume)
 
+            console.info(`[candleStick] ${pair} open: ${open} close: ${close} high: ${high} low: ${low} volume: ${volume}`);
+
             highs.push(high)
             lows.push(low)
             closes.push(close)
@@ -117,7 +119,7 @@ const run = (simulated: boolean) => {
                 mfi = res[0][res[0].length-1] ?? 0
             })
 
-            console.info(`[candleStick] ${pair} open: ${open} close: ${close} high: ${high} low: ${low} volume: ${volume} mfi: ${mfi}`);
+            console.info(`[mfi] mfi: ${mfi}`);
             console.info(`[status] start: ${moment(Date.now()).format('LLL')} positions opened: ${openedPositions} profit: ${totalProfit.toFixed(2)} balance: ${funds}`)
         }
     });
